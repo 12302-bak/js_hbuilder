@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html style="background: green;" <head>
+	<meta charset="utf-8" />
+	<title></title>
+	</head>
+	<link rel="stylesheet" href="css/abc.css" />
+	<script src="js/jquery.min.js"></script>
+
+	<body>
+		<input id="ip" value="bjanft" hello="world"/>
+		<input id="ip2"/>
+		<button>测试</button>
+	</body>
+</html>
+<script type="text/javascript">
+		//1,如果获取元素 ,id,class, css 选择器
+		//2、
+		$(function(){
+			$("button").click(function() {
+				// 自定义attr(), 原生prop();
+				//alert($("#ip").attr('value','abcdefghig'));
+				alert($("#ip").attr('hello'));
+			});
+		})
+		$(document).ready(function() {
+			$("button").click(function() {
+				// 自定义attr(), 原生prop();
+				//alert($("#ip").attr('value','abcdefghig'));
+				alert($("#ip").attr('hello'));
+			});
+		});
+</script>
