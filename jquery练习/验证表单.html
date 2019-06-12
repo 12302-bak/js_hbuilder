@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<div class="col-md-6">
+			<div class="form-group line-height-label">
+				<div class="col-md-4 input-name">
+					<label class="control-label col-md-11">检查人<span class="required">*</span></label>
+				</div>
+				<div class="col-md-6 input-input">
+					<input type="text" class="form-control required_form isEmpty validateSpecial isMoreFixed_10" name="insperctName" placeholder="">
+				</div>
+				<div class="col-md-2"><span class="help-block">&nbsp;</span></div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group line-height-label">
+				<div class="col-md-4 input-name">
+					<label class="control-label col-md-11">授权方式<span class="required">*</span></label>
+				</div>
+				<div class="col-md-6 input-input">
+					<input type="text" class="form-control required_form isEmpty validateSpecial isMoreFixed_122" name="insperctName" placeholder="">
+				</div>
+				<div class="col-md-2"><span class="help-block">&nbsp;</span></div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group line-height-label">
+				<div class="col-md-4 input-name">
+					<label class="control-label col-md-11">停车场名称<span class="required">*</span></label>
+				</div>
+				<div class="col-md-6 input-input">
+					<input type="text" class="form-control required_form isEmpty validateSpecial isMoreFixed" name="insperctName" placeholder="">
+				</div>
+				<div class="col-md-2"><span class="help-block">&nbsp;</span></div>
+			</div>
+		</div>
+
+		<div class="col-md-11">
+			<div class="form-group line-height-label">
+				<div class="col-md-2 input-name textarea-label">
+					<label class="control-label col-md-11">检查范围<span class="required">*</span></label>
+				</div>
+				<div class="col-md-10 textarea-textarea">
+					<textarea class="form-control required_form isEmpty isMoreFixed_1000" rows="3" cols="20" name="range"></textarea>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$(function() {
+				var validateStatus = false;
+				// _12302_验证所填是否超长，固定255
+				var isIdCardNoList = $("textarea,input[class*='isMoreFixed']");
+				isIdCardNoList.each(function() {
+
+					var temp = $(this).get(0).classList.toString();
+					var ee = temp.match(/isMoreFixed_\d*/);
+					if(ee) {
+						var num = ee[0].split('_');
+						/*if($(this).val().length > num[1]) {
+							console.log("有值的好使")
+						}*/
+						console.log(num[1]);
+					} else {
+						console.log('没值的过');
+					}
+
+				});
+			})
+		</script>
+	</body>
+
+</html>

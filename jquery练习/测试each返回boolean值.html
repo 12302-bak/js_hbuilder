@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<ul>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+			<li>13</li>
+			<li>14</li>
+		</ul>
+		<button>测试</button>
+
+		<script type="text/javascript">
+			$(function(){
+				$("button").click(function(){
+					console.log(checkabc());
+				})
+			});
+			
+			// each 中 return false 会跳出循环 return true 不会
+			function checkabc() {
+				var abc = false;
+				$("li").each(function() {
+					console.log($(this).text());
+					abc = $(this).text() == 13 ? false:true;
+					return abc;
+				});
+				return abc;
+			}
+		</script>
+	</body>
+
+</html>
