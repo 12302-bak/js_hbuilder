@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+	</head>
+
+	<body>
+
+		<div id="content" style="width: 200px;height: 100px;background-color: gainsboro;"></div>
+		<input type="button" name="sub" value="提交" />
+
+		<script type="text/javascript">
+			var index = 0;
+			//unbind()
+			$("input").bind("click", function() {
+				$("#content").text(" " + index);
+				index++;
+
+				$(this).unbind("click");
+			});
+			//one()
+			/*$("input").one("click",function(){
+				//定时1、3s后执行函数
+				setTimeout(function(){
+					alert('helloworld');
+				},3000);
+				//定时2、3s后循环执行
+				setInterval(function(){
+					$("#content").text("hello"+index);
+					index++;
+				},3000);
+			})*/
+		</script>
+	</body>
+
+</html>

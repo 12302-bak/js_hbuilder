@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--注释：
+			判断DOMNodeInserted 监听的到底是什么东西，只有dom文档改变了，才可以触发，修改元素（标签属性）没有反应
+		-->
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+	</head>
+
+	<body>
+
+		<div id="planLevDicId_div">
+			<input type="text" id="planLevDicId" class="isEmpty" name="planLevDicId">
+			<input type="text" id="planLevDicIdInput" class="isEmpty" name="planTypeDicId">
+			<div>shijie</div>
+		</div>
+		
+		<button onclick="add()">入值</button>
+		<button onclick="update()">改值</button>
+		
+
+		<script type="text/javascript">
+			var title = $('#planLevDicId_div'); //the element I want to monitor 所需要监听的div
+			title.bind('DOMNodeInserted', function(e) {
+				console.log("changed");
+			});
+			
+			function add(){
+				$("#planLevDicId").val("hello");
+				$("#planLevDicIdInput").val("world");
+				//$('#planLevDicId_div').html('xhsgg');
+			}
+			
+			function insert(){
+				
+			}
+			
+			function update(){
+				$("div div").text("abc");
+			}
+		</script>
+	</body>
+
+</html>

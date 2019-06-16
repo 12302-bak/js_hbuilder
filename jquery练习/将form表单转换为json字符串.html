@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<!--<script type="text/javascript" src="js/test.push.js"></script>-->
+	</head>
+	<body>
+		
+		
+		<form class="form-horizontal">
+			<input name="name" value="12302" />
+			<input name="name" value="hello" />
+			<input name="name" value="world" />
+			<input name="pwd" value="xhsgg" />
+			<input name="email" value="xhsgg12302@126.com"  />
+		</form>
+		
+		<button id="search_btn" style="margin-top: 100px;margin-left: 200px;">转换</button>
+		
+		<script type="text/javascript">
+			$("#search_btn").click(function () {
+		            var o = {};
+		            var a = $(".form-horizontal").serializeArray();
+		            var b = $(".form-horizontal").serialize();
+		            $.each(a, function () {
+		                if (o[this.name]) {
+		                    if (!o[this.name].push) {
+		                        o[this.name] = [o[this.name]];
+		                    }
+		                    o[this.name].push(this.value || '');
+		                } else {
+		                    o[this.name] = this.value || '';
+		                }
+		            });
+		            console.log(JSON.stringify(o));
+		    });
+		</script>
+	</body>
+</html>

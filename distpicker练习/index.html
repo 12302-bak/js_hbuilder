@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<div class="col-md-6">
+            <div id="distpicker" data-value-type="code">
+                <div class="col-md-4">
+                    <label class="sr-only" for="province">Province</label>
+                    <select class="form-control" id="provinceName"></select>
+                </div>
+                <div class="col-md-6">
+                    <label class="sr-only" for="city">City</label>
+                    <select class="form-control" id="cityName"></select>
+                </div>
+                <div class="col-md-6">
+                    <label class="sr-only" for="district">District</label>
+                    <select class="form-control" id="districtName"></select>
+                </div>
+            </div>
+            <input type="hidden"  id="province"/>
+            <input type="hidden"  id="city"/>
+            <input type="hidden"  class="isEmpty" id="district" />
+            <input type="hidden" id="areaId"  class="isEmpty"  name="areaId" />
+        </div>
+        <div id="distpicker3" data-value-type="code">
+		  <select></select>
+		  <select class="form-control" id="cityName"  ></select>
+		  <select class="form-control" id="districtName"  ></select>
+		</div>
+		
+	</body>
+</html>
+
+
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/distpicker.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		$("#distpicker").distpicker({
+                province: '530000',
+				city: '530900',
+				district: '530926'
+		});
+		$("#distpicker3").distpicker({
+                province: '620000',
+				city: '620500',
+				district: ''
+		});
+		
+		//console.log($("#provinceName").find("option:selected").val());
+		console.log($("#provinceName option:selected").val());
+	})
+</script>
