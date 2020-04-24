@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>test - jquery.pagination.js</title>
+		<link href="css/jquery.pagination.css" rel="stylesheet" />
+		<script src="../jquery练习/js/jquery.min.js"></script>
+		<script src="js/jquery.pagination-1.2.7.min.js"></script>
+		<script type="text/javascript">
+			function showPage(total,pageSize){
+            //分页
+            $('#news-Pagination-1').pagination(total, {      //总记录数
+                items_per_page:12,          //每页显示多少条记录
+                  next_text:'下一页',
+                  prev_text:'上一页',
+                  num_edge_entries:2,  //连接分页主体的条数
+                  callback:handlePaginationClick
+             });
+      
+          	}
+	        function handlePaginationClick(new_page_index, pagination_container) {
+	            //清除之前的数据
+	            $('div[class=b3-third-one-today-right]').children().empty();
+	            show68(show68_pageSize,new_page_index+1);
+	            return false;
+	        }
+	        
+		</script>
+		<style>
+			body {
+				font-family: 'Microsoft YaHei';
+			}
+		</style>
+	</head>
+	<body>
+		<div id="news-Pagination-1"></div>
+	</body>
+
+	<script type="text/javascript">
+		var j=1;
+
+		
+		if(j==1){
+		        //第一次调用
+		        j++;
+		        showPage(data.total,pageSize);
+		}
+	</script>
+</html>

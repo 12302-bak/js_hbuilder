@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.1.1.min.js"></script>
+	</head>
+
+	<body>
+		<table id='detail-id'>
+			<tr>
+				<td>序号</td>
+				<td>时间</td>
+				<td>名称</td>
+				<td>人员</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2019</td>
+				<td>wang</td>
+				<td>10</td>
+				<td>
+					<a href="javascript:;" onclick="edit(this)">编辑</a>
+					<a href="javascript:;" onclick="del(this)">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>2030</td>
+				<td>黎明</td>
+				<td>20.44</td>
+				<td>
+					<a href="javascript:;" onclick="edit(this)">编辑</a>
+					<a href="javascript:;" onclick="del(this)">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>2030</td>
+				<td>黎明</td>
+				<td>20.44</td>
+				<td>
+					<a href="javascript:;" onclick="edit(this)">编辑</a>
+					<a href="javascript:;" onclick="del(this)">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>2030</td>
+				<td>黎明</td>
+				<td>20.44</td>
+				<td>
+					<a href="javascript:;" onclick="edit(this)">编辑</a>
+					<a href="javascript:;" onclick="del(this)">删除</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+	<script type="text/javascript">
+		function del(obj) {
+			var curTr = $(obj).parent().parent();
+			$(curTr).nextAll().each(function(){
+				var firstTd = $(this).children("td:first");
+				var value = $(firstTd).html();
+				if(value>0)
+				$(firstTd).html( value -1 );
+			});
+			$(curTr).remove();
+			var table = $('#detail-id').find('tr:first').nextAll().length;
+			console.log(table);
+		}
+		function edit(obj){
+			var curTr = $(obj).parent().parent();
+			console.log( "{" + $(curTr).children("td:not(:last)").map(function(j, el) {
+					return  "\"" + $(el).attr('data-value') + "\"" + ":" + "\"" + ($(el).attr('data-value') != 'checkType' ? $(el).html() :
+						$(el).html() == '上班' ? 1 : 2) + "\"";
+			}).get().join(",") + "}");
+		}
+
+		function tabToJSONForJquery(id) {
+			var titles = $("#" + id).find("tr:first td"); //获得表头td数组
+			//遍历非表头的，tr、td...拼装json
+			var json = "[" + $("#" + id).find("tr:not(:first)").map(function(i, e) {
+				return "{" + $(e).children("td:not(:first)").not(":last").map(function(j, el) {
+					return "\"" + $(el).attr('data-value') + "\"" + ":" + "\"" + ($(el).attr('data-value') != 'checkType' ? $(el).html() :
+						$(el).html() == '上班' ? 1 : 2) + "\"";
+				}).get().join(",") + "}";
+			}).get().join(",") + "]";
+			return JSON.parse(json);
+		}
+	</script>
+
+</html>

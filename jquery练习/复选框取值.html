@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<form id="expert">
+			<label class="check-box-label checkbox-inline"><input class="form_tab_2_3_3" type="checkbox" value="1" name="expertTypeIn">  省级专家</label>
+			<label class="check-box-label checkbox-inline"><input class="form_tab_2_3_4" type="checkbox" value="2" name="expertTypeIn"> 市州级专家</label>
+		</form>
+		<button>输出</button>
+
+		<script type="text/javascript">
+			$(function() {
+				$("button").on("click", function() {
+					console.log($("#expert").serialize());
+				});
+
+				$('input[type=checkbox]').change(function() {
+					$('#Jszzdm').val($('input[type=checkbox]:checked').map(function() {
+						return this.value
+					}).get().join(','))
+				})
+
+			});
+		</script>
+	</body>
+
+</html>

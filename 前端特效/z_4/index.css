@@ -1,0 +1,141 @@
+body {
+    //display: flex;
+    //justify-content: space-around;
+    //align-items: flex-start;
+    margin: 0;
+    font-family: Georgia, sans-serif;
+    background: orange;
+    //background-image: url('http://a1star.com/images/starsglow1.gif');
+    
+    h1 {
+        margin: 0;
+        padding: 1em 0;;
+        text-align: center;
+        background: steelblue;
+        color: lightcyan;
+        text-shadow: 0.2em 0.2em 0 rgba(black, .2);
+    }
+    
+    button {
+        padding: 1em;
+        font: inherit;
+    }
+    
+    footer {
+        padding: 2em 1em;
+        background: orangered;
+        color: lightgoldenrodyellow;
+        
+        a { color: gold; }
+    }
+}
+
+#app {
+    //display: flex;
+    //flex-flow: row wrap;
+    //align-items: flex-start;
+    text-align: center;
+    //margin: 1em;
+    padding: .5em 0;
+    background: aliceblue;
+    
+    .group {
+        display: inline-block;
+        vertical-align: top;
+        margin: .5em .8em;
+
+        button {
+            display: block;
+            margin: auto;
+            margin-bottom: .5em;
+        }
+    }
+    
+    .image-container {
+        position: relative;
+        display: inline-block;
+        background: white;
+        
+        .draw-area {
+            text-align: left;
+            overflow: hidden;
+        }
+        
+        input {
+            //This also disables keyboard navigation..
+            //  display: none;
+            
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            width: 0;
+            
+            + span {
+                position: relative;
+                display: block;
+                padding: .5em;
+                box-sizing: border-box;
+                background: purple;
+                color: white;
+                cursor: pointer;
+            }
+            
+            &:focus + span,
+            &:active + span,
+            + span:hover {
+                background: darkviolet;
+                outline: 2px solid violet;
+            }
+        }
+    }
+
+    #morph {
+        position: relative;
+        display: table;
+
+        canvas {
+            background: white;
+            
+            + canvas {
+                position: absolute;
+                top:0; left:0;
+            }
+        }
+    }
+    
+    .image-container, #morph {
+        box-shadow: 0 0  0 1px paleturquoise;
+    }
+    
+    svg {
+        position: absolute;
+        top:0; left:0;
+
+        .connector {
+            stroke: rgba(dodgerblue, .5);
+            stroke-width: 1;
+            stroke-dasharray: 2;
+            pointer-events: none;
+        }
+        
+        [data-draggable] {
+            stroke: black;
+            fill: rgba(white, .2);
+            fill: url(#point-grad);
+            cursor: move;
+            
+            &.selected {
+                fill: rgba(yellow, .5);
+            }
+        }
+    }
+    
+    pre {
+        flex: 1 1 auto;
+        margin: .5em 1em;
+        background: white;
+        color: #888;
+        border: 1px solid gainsboro;
+        overflow: auto;
+    }
+}

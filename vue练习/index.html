@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="js/vue.js"></script>
+		<!-- 生产环境版本，优化了尺寸和速度 -->
+		<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+	</head>
+
+	<body>
+
+		<!--
+        	作者：xhsgg12302@126.com
+        	时间：2019-06-16
+        	描述：1
+        -->
+		<div id="vue">
+			{{message}}
+		</div>
+		
+		<script type="text/javascript">
+			var vue = new Vue({
+				el: '#vue',
+				data: {
+					message: 'hello vue!'
+				}
+			});
+		</script>
+		
+		
+		<!--
+        	作者：xhsgg12302@126.com
+        	时间：2019-06-16
+        	描述：2
+        -->
+		<div id="app-2">
+			<span v-bind:title="message">
+		    	鼠标悬停几秒钟查看此处动态绑定的提示信息！
+		  	</span>
+		</div>
+		<script>
+			var app2 = new Vue({
+				el: '#app-2',
+				data: {
+					message: '页面加载于 ' + new Date().toLocaleString()
+				}
+			});
+		</script>
+		
+		<!--
+        	作者：xhsgg12302@126.com
+        	时间：2019-06-16
+        	描述：3
+        -->
+		<div id="app-3">
+			<p v-if="seen">现在你看到我了</p>
+		</div>
+		<script>
+			var app3 = new Vue({
+				el: '#app-3',
+				data: {
+					seen: true
+				}
+			});
+		</script>
+		
+		<!--
+        	作者：xhsgg12302@126.com
+        	时间：2019-06-16
+        	描述：4
+        -->
+		<div id="app-4">
+			<ol>
+				<li v-for="arr in arrs">
+					{{arr.text}}
+				</li>
+			</ol>
+		</div>
+		<script>
+			var app4 = new Vue({
+				el: '#app-4',
+				data: {
+					arrs:[
+						{
+							text:'helloworld',
+							name:'name1',
+							age:12
+						},
+						{
+							text:'xhsgg',
+							name:'name2',
+							age:14,
+							car:'宝马'
+						}
+					]
+				}
+			});
+		</script>
+		
+		<!--
+        	作者：xhsgg12302@126.com
+        	时间：2019-06-16
+        	描述：6
+        -->
+		<div id="app-6">
+		  <p>{{ message }}</p>
+		  <input type="password" v-model="message">
+		</div>
+		<script>
+			var app6 = new Vue({
+				el: '#app-6',
+				data: {
+					message:'origin'
+				}
+			});
+		</script>
+		
+		
+		<!--
+        	作者：xhsgg12302@126.com
+        	时间：2019-06-16
+        	描述：7
+        -->
+		<div id="app-7">
+		  <ul>
+		  	<xhsgg
+		  		v-for='food in foodsList'
+		  		v-bind:wang='food'
+		  		v-bind:key='food.id'
+		  		></xhsgg>
+		  </ul>
+		</div>
+		<script>
+			Vue.component('xhsgg',{
+				props:['wang'],
+				template: '<li>{{wang.text}}</li>'
+			});
+			var app7 = new Vue({
+				el: '#app-7',
+				data:{
+					foodsList:[
+						{
+							id:0,text:'西红柿'
+						},
+						{
+							id:1,text:'番茄'
+						},
+						{
+							id:2,text:'大白菜'
+						},
+						{
+							id:3,text:'鸡蛋'
+						}
+					]
+				}
+			});
+		</script>
+		
+		
+		
+		<!--
+        	作者：xhsgg12302@126.com
+        	时间：2019-06-16
+        	描述：7
+        -->
+		<div id="app-8">
+		  	<p>Original message: "{{ message }}"</p>
+  			<p>Computed reversed message: "{{ reversedMessage }}"</p>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+			  el: '#app-8',
+			  data: {
+			    message: 'Hello'
+			  },
+			  computed: {
+			    // 计算属性的 getter
+			    reversedMessage: function () {
+			      // `this` 指向 vm 实例
+			      return this.message.split('').reverse().join('')
+			    }
+			  },
+			  methods:{
+			  	abc:function(){
+			  		return Date.now()
+			  	}
+			  }
+			})
+		</script>
+
+	</body>
+</html>

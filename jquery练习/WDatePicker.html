@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/WdatePicker.js"></script>
+	</head>
+
+	<body>
+		<!-- start html -->
+		<dl>
+			<dt>失效日期</dt>
+			<dd class="inback"><input type="text" class="Wdate" style="width:280px" id="invalidDate" name="startDateStr" onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd'})" value="2019-04-23" /></dd>
+			<dd><span class="t_red">*</span></dd>
+			<input type="text" id="name" name="name" value="wtf"/>
+		</dl>
+		<!-- stop html -->
+
+		<script type="text/javascript">
+			$(function() {
+				//console.log(dateToString(new Date('2019-11-23')));
+				/*$("#invalidDate").bind('input propertychange', function() {
+					
+				});*/
+
+
+			});
+			
+				$("#invalidDate").on('change', function(event) {
+					//代码块
+					abc();
+				});
+
+			function dateToString(date) {
+				var year = date.getFullYear();
+				var month = (date.getMonth() + 1).toString();
+				var day = (date.getDate()).toString();
+				if(month.length == 1) {
+					month = "0" + month;
+				}
+				if(day.length == 1) {
+					day = "0" + day;
+				}
+				var dateTime = year + "-" + month + "-" + day;
+				return dateTime;
+			};
+
+			function abc() {
+				var a = $('#invalidDate').val();
+				console.log(a);
+				/*var a = 0;
+				var a = undefined;
+				var a = "";*/
+				//var a = null;
+				if(!a) {
+					alert("真");
+				}
+			}
+		</script>
+	</body>
+
+</html>

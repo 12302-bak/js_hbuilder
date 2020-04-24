@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="skin/jedate.css" />
+		<script src="jquery-1.7.2.js"></script>
+		<script src="jquery.jedate.min.js"></script>
+	</head>
+
+	<body>
+		<input id="test" name="name" type="text" readonly="readonly"></input>
+		<script type="text/javascript">
+		$(function() {
+					//常规选择
+					$.jeDate($("#test"), {
+						format: "YYYY"
+					});
+		} )
+	</script>
+	
+	</body>
+</html>
